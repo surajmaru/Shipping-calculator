@@ -1,0 +1,133 @@
+<html>
+
+<head>
+
+<title>DOM project final3</title>
+
+
+<style>
+
+
+
+
+p{
+
+    font-family: arial;
+    font-size: 20px;
+
+
+
+}
+
+input{
+
+width:250px;
+height: 40px;
+font-size: 19px;
+padding-left: 10px;
+border-style: solid;
+border-width: 2px;
+border-radius: 5px;
+
+
+
+}
+
+button{
+
+
+    border: none;
+    background-color: rgb(42, 211, 42);
+    color: white;
+    height: 39px;
+    width: 100px;
+    vertical-align: top;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 15px;
+
+
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+    <p>Amazon Shipping Calculator</p>
+
+    <p>Order under $40 = +$10 shipping</p>
+
+    <p>Order over $40 = FREE shipping</p>
+
+    <input type="text" placeholder="Cost of order" onkeydown="
+
+    key(event);
+    
+    " >
+
+
+    <button onclick="
+    
+    calculate();
+    
+    
+    " >Calculate</button>
+
+
+    <p class="js-cal" ></p>
+
+
+    <script>
+
+
+        function key (event){
+
+            if(event.key === 'Enter'){
+
+
+                calculate();
+
+
+                    }
+
+
+        }
+
+        function calculate(){
+
+
+            let cal = document.querySelector('input');
+            
+           let cal2 = JSON.parse( cal.value );
+
+           // or can be written as :-
+           // let cal2 = Number( cal.value );
+
+           // and to convert a number to string :-
+           // string(23);
+           // 23 will be converted into a  string.
+
+
+
+           if(cal2 < 40 ){
+
+            cal2 = cal2 + 10;
+
+
+            }
+
+            document.querySelector('.js-cal').innerHTML = `$${cal2}`;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html> 
